@@ -14,8 +14,11 @@ while True:
     if action == '1':
         name = (input('введите имя нового контакта - ')).title()
         number = int(input('введите номер нового контакта - '))
-        tel_book[name] = number
-        print(f'Контакт успешно добавлен')
+        if name not in tel_book:
+            tel_book[name] = number
+            print(f'Контакт успешно добавлен')
+        else:
+            print('этот контакт уже есть в книге')
         print(30*'*')
 
     elif action == '2':
